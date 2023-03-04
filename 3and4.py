@@ -9,14 +9,6 @@ alt.data_transformers.disable_max_rows()
 df = pd.read_csv('nhanes_filtered.csv')
 
 df = df.dropna(subset=["Family_Income","Age_Group","Diabetes"])
-<<<<<<< HEAD
-df['Diabetes'] = df['Diabetes'].map({'yes': 1, 'no': 0})
-
-# Slider bar of year
-year = st.slider("Year", 2009, 2013, 2017)
-subset = df[df["Year"] == year]
-
-=======
 df['Diabetes'] = df['Diabetes'].map({'yes': 100, 'no': 0})
 
 # Slider bar of year
@@ -35,7 +27,6 @@ income_type = st.radio(
     ('<10000','10000-20000','20000-35000', '35000-55000', '55000-75000',
        '75000-100000', '>100000'))
 
->>>>>>> 643ad89a97f6b9d2aeda9c2f9a5f6911b843742d
 # Plot of income
 plot3_income = alt.Chart(subset).transform_joinaggregate(
     Rate_Family_Income='mean(Diabetes)',
@@ -46,17 +37,6 @@ plot3_income = alt.Chart(subset).transform_joinaggregate(
 ).mark_bar().encode(
     y=alt.Y('Family_Income:N', sort='-x', title="Family Income Range"),
     x=alt.X('mean(Diabetes):Q', title="Diabetes Rate", axis=alt.Axis(tickCount=5)),
-<<<<<<< HEAD
-    color=alt.Color('Family_Income:N', title="Family_Income Range"),
-    tooltip=["Family_Income", "mean(Diabetes):Q"] # tooltips upon mouse hover
-).properties(
-    title=f"{year} Family income vs prevalence of diabetes",
-    width=600,
-    height=600
-)
-
-plot3_income
-=======
     color=alt.condition(
         alt.datum.Family_Income == income_type,  
         alt.value('orange'),     # which sets the bar orange.
