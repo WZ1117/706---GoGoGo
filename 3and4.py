@@ -171,4 +171,3 @@ final_plot = alt.vconcat(plot4, pie_chart).resolve_scale(
 )
 
 final_plot
->>>>>>> 643ad89a97f6b9d2aeda9c2f9a5f6911b843742d
