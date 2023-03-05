@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 ## Read data
-@st.cache
+@st.cache(allow_output_mutation=True)
 def load_data():
    
     diabetes = pd.read_csv("https://github.com/WZ1117/706_go/blob/main/data/nhanes_filtered.csv?raw=true")
@@ -20,8 +20,8 @@ def load_data():
     return diabetes
 
 df = load_data()
-diabetes2 = load_data()
-diabetes['Year'] = diabetes2['Year'].replace(to_replace = [2009, 2011, 2013, 2015, 2017], value=['2009-2010', '2011-2012', '2013-2014', '2015-2016', '2017-2018'])
+diabetes = load_data()
+diabetes['Year'] = diabetes['Year'].replace(to_replace = [2009, 2011, 2013, 2015, 2017], value=['2009-2010', '2011-2012', '2013-2014', '2015-2016', '2017-2018'])
 
 with st.sidebar: 
     
