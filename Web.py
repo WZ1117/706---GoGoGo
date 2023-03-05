@@ -477,7 +477,7 @@ pie_chart = alt.Chart(subset
 #     chart = base.transform_filter(datum.Disease_type== type)
 
 
-final_plot = alt.vconcat(plot4, pie_chart).resolve_scale(
+final_plot = alt.vconcat(plot4, pie_chart,center=False).resolve_scale(
     color='independent'
 )
 
