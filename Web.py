@@ -481,6 +481,7 @@ final_plot = alt.vconcat(plot4, pie_chart).resolve_scale(
     color='independent'
 )
 
-final_plot
+
+st.altair_chart(final_plot, use_container_width=True)
 st.write("Your selected medical conditions are shown in the bar plot.")
 #########################################PLOT4#########################################
