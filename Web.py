@@ -444,7 +444,7 @@ plot4 = alt.Chart(subset).transform_joinaggregate(
 ).properties(
     title="Diabetes Rate Under Certain Disease"
 ).properties(
-    width=alt.Step(10) 
+    #width=alt.Step(10) 
 )
 
 # plot4
