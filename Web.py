@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 ## Read data
-@st.cache(allow_output_mutation=True)
+@st.cache_data
 def load_data():
    
     diabetes = pd.read_csv("https://github.com/WZ1117/706_go/blob/main/data/nhanes_filtered.csv?raw=true")
